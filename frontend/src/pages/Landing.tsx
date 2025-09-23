@@ -1,4 +1,3 @@
-import React from 'react'
 import { Button } from '../components/ui/button'
 import { ArrowRight, Images} from 'lucide-react'
 import camera from '../assets/camera.jpg'
@@ -17,11 +16,6 @@ const Landing = () => {
                     <Images className='h-8 w-8 text-slate-50'/>
                     <span className='text-2xl font-bold text-slate-50'>PhotoAlbums</span>
                 </div>
-                <Button size="lg" className='px-8 py-4 text-lg rounded-lg bg-blue-600 hover:bg-blue-800 transition-all duration-300 shadow-lg hover:shadow-xl mr-7' >
-                        <a href="/login">
-                            Login
-                        </a>
-                </Button>
             </div>
         </header>
         

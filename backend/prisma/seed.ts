@@ -13,9 +13,9 @@ async function main() {
     const userIdMap: Record<number, number> = {};
     const albumIdMap: Record<number, number> = {};
 
-    // 1. Fetch and insert Users (limit 3)
+  
     const { data: users } = await axios.get("https://jsonplaceholder.typicode.com/users");
-    for (const user of users.slice(0, 3)) {
+    for (const user of users) {
         const newUser = await prisma.user.create({
         data: {
             name: user.name,
@@ -28,7 +28,7 @@ async function main() {
 
     // 2. Fetch and insert Albums (limit 5)
     const { data: albums } = await axios.get("https://jsonplaceholder.typicode.com/albums");
-    for (const album of albums.slice(0, 5)) {
+    for (const album of albums) {
         if (userIdMap[album.userId]) {
         const newAlbum = await prisma.album.create({
             data: {
@@ -40,9 +40,9 @@ async function main() {
         }
     }
 
-    // 3. Fetch and insert Photos (limit 10)
+   
     const { data: photos } = await axios.get("https://jsonplaceholder.typicode.com/photos");
-    for (const photo of photos.slice(0, 10)) {
+    for (const photo of photos) {
         if (albumIdMap[photo.albumId]) {
         await prisma.photo.create({
             data: {

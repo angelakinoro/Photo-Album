@@ -4,10 +4,7 @@ import {prisma} from "../prisma/prismaClient.js"
 // GET all users
 export const getUsers = async (req: Request, res: Response) => {
     try{
-        const users = await prisma.user.findMany({
-            include: { albums: true }
-        });
-
+        const users = await prisma.user.findMany();
         res.json(users);
     } catch (error){
         console.error("Error fetching users:", error);
