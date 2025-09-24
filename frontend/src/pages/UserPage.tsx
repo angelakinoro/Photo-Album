@@ -4,7 +4,7 @@ import axios from "axios";
 import { Button } from "../components/ui/button";
 import { Badge } from "../components/ui/badge";
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "../components/ui/card";
-import { Loader2, Images, Album, Mail, User as UserIcon } from "lucide-react";
+import { Loader2, Images, Album, Mail, User as UserIcon, ArrowLeft} from "lucide-react";
 
 interface User {
   id: number;
@@ -85,12 +85,12 @@ const UserPage = () => {
           <span className="text-2xl font-bold text-slate-50">PhotoAlbums</span>
         </div>
         <Button
-          variant="outline"
-          size="sm"
-          className="bg-gray-200 hover:bg-gray-300 text-gray-800"
-          onClick={() => navigate(-1)}
-        >
-          Back
+            variant="outline"
+            size="sm"
+            onClick={() => navigate(-1)}
+            className="bg-gray-200 hover:bg-gray-300 text-gray-900 border-gray-200 hover:border-gray-300"
+          >
+            <ArrowLeft className="h-4 w-4 mr-1" /> Back
         </Button>
       </header>
 

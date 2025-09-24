@@ -46,7 +46,7 @@ const Login = () => {
 
       <header className='relative container mx-auto px-4 py-6'>
             <div className='flex items-center justify-between'>
-                <div className='flex items-center space-x-2 ml-10'>
+                <div className='flex items-center space-x-2 ml-10' onClick={() => navigate('/')}>
                     <Images className='h-8 w-8 text-slate-50'/>
                     <span className='text-2xl font-bold text-slate-50'>PhotoAlbums</span>
                 </div>
@@ -94,7 +94,7 @@ const Login = () => {
                   <p className="text-white/40 text-xs">
                     By signing in, you agree to our Terms of Service and Privacy Policy
                   </p>
-                  <a href="/" className="text-white/30 text-xs underline">Go back home </a>
+                  <a href="/" className="text-slate-50 text-xs underline">Go back home </a>
                 </div>
               </CardContent>
             </Card>

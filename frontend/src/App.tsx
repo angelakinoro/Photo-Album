@@ -37,7 +37,7 @@ const AppContent = () => {
         element={user ? <UserPage /> : <Navigate to="/login" replace />} 
       />
       <Route 
-        path="/albums/:id" 
+        path="/albums/:albumId" 
         element={user ? <AlbumPage /> : <Navigate to="/login" replace />} 
       />
       <Route 
