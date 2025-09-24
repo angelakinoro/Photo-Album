@@ -60,9 +60,12 @@ const PhotoPage = () => {
       try {
         console.log(`Fetching photo with ID: ${id}`);
         const response = await axios.get(`http://localhost:4000/api/photos/${id}`);
-        console.log("Fetched photo:", response.data);
-        setPhoto(response.data);
-        setEditedTitle(response.data.title);
+            if (!response.data) {
+                setPhoto(null);
+            } else {
+                setPhoto(response.data);
+                setEditedTitle(response.data.title);
+            }
       } catch (err: any) {
         console.error("Error fetching photo:", err);
         setError(err.message);
@@ -172,6 +175,7 @@ const PhotoPage = () => {
               <Check className="h-3 w-3 mr-1" />
               Saved!
             </Badge>
+        
           )}
           <Button
             variant="outline"
@@ -206,6 +210,7 @@ const PhotoPage = () => {
                     size="sm" 
                     onClick={handleSaveTitle}
                     disabled={saving || !editedTitle.trim()}
+                    aria-label="Save"
                   >
                     {saving ? <Loader2 className="h-4 w-4 animate-spin" /> : <Save className="h-4 w-4" />}
                   </Button>
