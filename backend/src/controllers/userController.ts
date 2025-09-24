@@ -33,6 +33,7 @@ export const getUserById = async (req: Request, res: Response) => {
 
 
 // CREATE new user
+/*
 export const createUser = async (req: Request, res: Response) => {
     try{
         const { name, username, email} = req.body;
@@ -46,4 +47,4 @@ export const createUser = async (req: Request, res: Response) => {
         console.error("Error creating user:", error);
         res.status(500).json({message: "Internal server error"});
     }
-};
+};*/

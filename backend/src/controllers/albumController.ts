@@ -26,6 +26,7 @@ export const getAlbumsByUser = async(req: Request, res: Response) => {
 };
 
 // POST new album
+/*
 export const createAlbum = async(req: Request, res: Response) => {
     const { title, userId } = req.body;
     try {
@@ -36,4 +37,4 @@ export const createAlbum = async(req: Request, res: Response) => {
     } catch (error) {
         res.status(400).json({ error: "Failed to create album" })
     }
-};
+};*/
