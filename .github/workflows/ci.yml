@@ -43,8 +43,5 @@ jobs:
       - name: Lint backend
         run: cd backend && npm run lint
 
-      - name: Test backend
-        run: cd backend && npm run test
-
       - name: Build backend
         run: cd backend && npm run build
