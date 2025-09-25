@@ -19,7 +19,7 @@ const AlbumPage = () => {
   const [error, setError] = useState<string | null>(null);
   const [imageErrors, setImageErrors] = useState<Set<number>>(new Set());
   const navigate = useNavigate();
-  const API_URL = import.meta.env.VITE_API_URL;
+  const API_URL = import.meta.env.VITE_API_URL ||  "http://localhost:4000";
 
   useEffect(() => {
     // Add guard clause

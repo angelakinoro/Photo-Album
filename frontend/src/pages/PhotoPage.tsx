@@ -34,7 +34,7 @@ const PhotoPage = () => {
   const [saving, setSaving] = useState(false);
   const [saveSuccess, setSaveSuccess] = useState(false);
   const navigate = useNavigate();
-  const API_URL = import.meta.env.VITE_API_URL;
+  const API_URL = import.meta.env.VITE_API_URL ||  "http://localhost:4000";
 
 
   // Function to convert placeholder URLs (same as AlbumPage)
