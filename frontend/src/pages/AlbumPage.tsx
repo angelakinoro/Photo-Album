@@ -19,6 +19,7 @@ const AlbumPage = () => {
   const [error, setError] = useState<string | null>(null);
   const [imageErrors, setImageErrors] = useState<Set<number>>(new Set());
   const navigate = useNavigate();
+  const API_URL = import.meta.env.VITE_API_URL;
 
   useEffect(() => {
     // Add guard clause
@@ -30,7 +31,7 @@ const AlbumPage = () => {
 
     const fetchPhotos = async () => {
       try {
-        const res = await axios.get(`http://localhost:4000/api/photos/album/${albumId}`);
+        const res = await axios.get(`${API_URL}/photos/album/${albumId}`);
         console.log("Fetched photos:", res.data); // Debug log
         setPhotos(res.data);
       } catch (err: any) {

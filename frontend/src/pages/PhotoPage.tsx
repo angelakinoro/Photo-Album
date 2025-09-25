@@ -34,6 +34,8 @@ const PhotoPage = () => {
   const [saving, setSaving] = useState(false);
   const [saveSuccess, setSaveSuccess] = useState(false);
   const navigate = useNavigate();
+  const API_URL = import.meta.env.VITE_API_URL;
+
 
   // Function to convert placeholder URLs (same as AlbumPage)
   const getWorkingImageUrl = (originalUrl: string, photoId: number) => {
@@ -59,7 +61,7 @@ const PhotoPage = () => {
     const fetchPhoto = async () => {
       try {
         console.log(`Fetching photo with ID: ${id}`);
-        const response = await axios.get(`http://localhost:4000/api/photos/${id}`);
+        const response = await axios.get(`${API_URL}/photos/${id}`);
             if (!response.data) {
                 setPhoto(null);
             } else {
@@ -85,7 +87,7 @@ const PhotoPage = () => {
       console.log(`Updating photo ${photo.id} title to: ${editedTitle}`);
       
       // Send PATCH request to update the title
-      const response = await axios.patch(`http://localhost:4000/api/photos/${photo.id}`, {
+      const response = await axios.patch(`${API_URL}/photos/${photo.id}`, {
         title: editedTitle.trim()
       });
 

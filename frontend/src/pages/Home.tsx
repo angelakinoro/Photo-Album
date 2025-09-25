@@ -83,6 +83,8 @@ const Home = () => {
     const [error, setError] = useState<string | null>(null);
     const [loading, setLoading] = useState(true);
     const navigate = useNavigate();
+    const API_URL = import.meta.env.VITE_API_URL;
+
 
     const handleLogout = async () => {
         try {
@@ -101,8 +103,8 @@ const Home = () => {
         const fetchData = async () => {
             try {
                 const [usersRes, albumsRes] = await Promise.all([
-                    axios.get("http://localhost:4000/api/users"),
-                    axios.get("http://localhost:4000/api/albums"),
+                    axios.get(`${API_URL}/users`),
+                    axios.get(`${API_URL}albums`),
                 ]);
                 setUsers(usersRes.data);
                 setAlbums(albumsRes.data);

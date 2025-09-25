@@ -26,13 +26,15 @@ const UserPage = () => {
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState<string | null>(null);
   const navigate = useNavigate();
+  const API_URL = import.meta.env.VITE_API_URL;
+
 
   useEffect(() => {
     const fetchData = async () => {
       try {
         const [userRes, albumsRes] = await Promise.all([
-          axios.get(`http://localhost:4000/api/users/${id}`),
-          axios.get(`http://localhost:4000/api/albums/user/${id}`),
+          axios.get(`${API_URL}/users/${id}`),
+          axios.get(`${API_URL}/albums/user/${id}`),
         ]);
         setUser(userRes.data);
         setAlbums(albumsRes.data);
