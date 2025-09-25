@@ -1,11 +1,6 @@
-// Import the functions you need from the SDKs you 
 import { initializeApp } from "firebase/app";
-import { getAuth, GoogleAuthProvider, signInWithPopup, signOut } from "firebase/auth"
-// TODO: Add SDKs for Firebase products that you want to use
-// https://firebase.google.com/docs/web/setup#available-libraries
+import { getAuth, GoogleAuthProvider, signInWithPopup, signOut } from "firebase/auth";
 
-// Your web app's Firebase configuration
-// For Firebase JS SDK v7.20.0 and later, measurementId is optional
 const firebaseConfig = {
   apiKey: import.meta.env.VITE_FIREBASE_API_KEY,
   authDomain: import.meta.env.VITE_FIREBASE_AUTH_DOMAIN,
@@ -16,11 +11,17 @@ const firebaseConfig = {
   measurementId: import.meta.env.VITE_FIREBASE_MEASUREMENT_ID
 };
 
-// Initialize Firebase
-const app = initializeApp(firebaseConfig);
+// Initialize Firebase *only if not in test*
+let app: ReturnType<typeof initializeApp> | undefined;
+if (process.env.NODE_ENV !== "test") {
+  app = initializeApp(firebaseConfig);
+}
 
-export const auth = getAuth(app);
+export const auth = app ? getAuth(app) : ({} as any);
 export const provider = new GoogleAuthProvider();
 
-export const loginWithGoogle = () => signInWithPopup(auth, provider);
-export const logout = () => signOut(auth);
+export const loginWithGoogle = () =>
+  process.env.NODE_ENV !== "test" ? signInWithPopup(auth, provider) : Promise.resolve();
+
+export const logout = () =>
+  process.env.NODE_ENV !== "test" ? signOut(auth) : Promise.resolve();
