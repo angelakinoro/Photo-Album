@@ -4,19 +4,17 @@ import { Card, CardContent, CardDescription, CardHeader, CardTitle } from '../co
 import { LogIn, Images } from 'lucide-react';
 import camera from '../assets/camera.jpg';
 import { auth, loginWithGoogle } from "../firebase";
-import { onAuthStateChanged, type User as FirebaseUser } from "firebase/auth";
+import { onAuthStateChanged} from "firebase/auth";
 import { useNavigate } from "react-router-dom";
 
 
 // Update the component
 const Login = () => {
-  const [user, setUser] = useState<FirebaseUser | null>(null);
   const [loading, setLoading] = useState(false);
   const navigate = useNavigate()
 
   useEffect(()=> {
     const unsubscribe = onAuthStateChanged(auth, (currentUser) =>{
-        setUser(currentUser);
         if (currentUser) navigate("/home")
     });
     return () => unsubscribe();
