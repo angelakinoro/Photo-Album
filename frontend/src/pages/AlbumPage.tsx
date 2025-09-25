@@ -31,7 +31,7 @@ const AlbumPage = () => {
 
     const fetchPhotos = async () => {
       try {
-        const res = await axios.get(`${API_URL}/photos/album/${albumId}`);
+        const res = await axios.get(`${API_URL}/api/photos/album/${albumId}`);
         console.log("Fetched photos:", res.data); // Debug log
         setPhotos(res.data);
       } catch (err: any) {

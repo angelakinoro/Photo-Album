@@ -61,7 +61,7 @@ const PhotoPage = () => {
     const fetchPhoto = async () => {
       try {
         console.log(`Fetching photo with ID: ${id}`);
-        const response = await axios.get(`${API_URL}/photos/${id}`);
+        const response = await axios.get(`${API_URL}/api/photos/${id}`);
             if (!response.data) {
                 setPhoto(null);
             } else {
@@ -87,7 +87,7 @@ const PhotoPage = () => {
       console.log(`Updating photo ${photo.id} title to: ${editedTitle}`);
       
       // Send PATCH request to update the title
-      const response = await axios.patch(`${API_URL}/photos/${photo.id}`, {
+      const response = await axios.patch(`${API_URL}/api/photos/${photo.id}`, {
         title: editedTitle.trim()
       });
 

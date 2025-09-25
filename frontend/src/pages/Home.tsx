@@ -103,8 +103,8 @@ const Home = () => {
         const fetchData = async () => {
             try {
                 const [usersRes, albumsRes] = await Promise.all([
-                    axios.get(`${API_URL}/users`),
-                    axios.get(`${API_URL}albums`),
+                    axios.get(`${API_URL}/api/users`),
+                    axios.get(`${API_URL}/api/albums`),
                 ]);
                 setUsers(usersRes.data);
                 setAlbums(albumsRes.data);
