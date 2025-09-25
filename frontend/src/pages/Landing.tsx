@@ -1,8 +1,14 @@
 import { Button } from '../components/ui/button'
 import { ArrowRight, Images} from 'lucide-react'
 import camera from '../assets/camera.jpg'
+import { useNavigate } from 'react-router-dom';
+
+
 
 const Landing = () => {
+
+  const navigate = useNavigate();
+    
   return (
     <div className='relative min-h-screen bg-cover bg-center'
         style={{ backgroundImage: `url(${camera})`}}
@@ -34,11 +40,15 @@ const Landing = () => {
 
                 {/*CTA Button*/}
                 <div className='mb-16'>
-                    <Button size="lg" className='px-8 py-4 text-lg rounded-lg bg-blue-600 hover:bg-blue-800 transition-all duration-300 shadow-lg hover:shadow-xl group' >
-                        <a href="/login" className='flex items-center space-x-2'>
+                    <Button
+                        size="lg"
+                        className="px-8 py-4 text-lg rounded-lg bg-blue-600 hover:bg-blue-800 transition-all duration-300 shadow-lg hover:shadow-xl group"
+                        onClick={() => navigate('/login')}
+                        >
+                        <div className="flex items-center space-x-2">
                             <span>Get Started</span>
-                            <ArrowRight className='h-5 w-5 group-hover:translate-x-1 transition-transform'/>
-                        </a>
+                            <ArrowRight className="h-5 w-5 group-hover:translate-x-1 transition-transform" />
+                        </div>
                     </Button>
 
                 </div>
