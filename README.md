@@ -34,11 +34,8 @@ A full-stack web application that allows users to explore users, their albums, a
 - **Axios** – Fetching seed data from external API  
 
 ### Authentication
-- **Firebase Authentication** – Google sign-in, session management  
-
----
-
-
+- **Firebase Authentication** – Google sign-in, session management
+  
 ---
 
 ## Database & Seeding
@@ -90,7 +87,6 @@ Steps:
 ### Prerequisites
 
 -   Node.js (>=18)
-
 -   Supabase (Postgres instance)
 
 ### Backend Setup
@@ -108,6 +104,24 @@ npm install
 npm run dev`
 
 ---
+### Deployment
+
+## Frontend – Deployed on Vercel
+- Configured vercel.json for route handling.
+- Environment variables include backend API URL + Firebase credentials.
+
+## Backend – Deployed on Render
+- Connected to Supabase (Postgres) via Prisma.
+- Exposes REST API consumed by the frontend.
+
+## Firebase – Google authentication
+- Vercel domain added to Firebase Console → Authentication → Settings → Authorized domains.
+
+---
+
+### Live Demo
+
+View the app here - (https://photo-album-frontend.vercel.app/)
 
 ### Author
 **Angela Kinoro**
